@@ -1,0 +1,26 @@
+﻿<h1>Vistas Parciales Ajax</h1>
+
+@section Scripts{ 
+<script>
+    $(document).ready(function () {
+        $("#botoncargarcoches").click(function () {
+            $("#capacoches").load("/Coches/_CochesPartial");
+        });
+        $("#botonbuscarcoche").click(function () {
+            var idcoche = $("#cajaidcoche").val();
+            var request = "/Coches/_CochesDetailsPartial?idcoches=" + idcoche;
+            $("#capadetailscoche").load(request);
+        });
+    });
+</script>
+}
+
+<button id="botoncargarcoches" class="btn btn-info">CargarCoches</button>
+
+<hr />
+IdCoche:
+<input type="text" id="cajaidcoche" class="form-control"/>
+<button type="button" class=" btn btn-success" id="botonbuscarcoche">BuscarCoche</button>
+
+<div id="capacoches" style="background-color: lightgray"></div>
+<div id="capadetailscoche" style="background-color: lightgray"></div>
